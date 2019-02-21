@@ -1,0 +1,5 @@
+- name: tv monitor dashboards
+  hosts: optiplex7010
+  gather_facts: yes
+  roles:
+  - ubuntu

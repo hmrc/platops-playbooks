@@ -9,7 +9,7 @@ setup: ## python virtual environment
 
 run: ## run main playbook
 	VIRTUAL_ENV_DISABLE_PROMPT=true source .venv/bin/activate;\
-	env ANSIBLE_FORCE_COLOR=true ansible-playbook -i hosts workstation.yml
+	env ANSIBLE_FORCE_COLOR=true ansible-playbook -i hosts -K monitor.yml
 
 ping: ## test ping against optiplex7010
 	VIRTUAL_ENV_DISABLE_PROMPT=true source .venv/bin/activate;\

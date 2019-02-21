@@ -2,8 +2,19 @@
 
 # Requirements
 
+## Control machine
+
+The machine running this ansible playbooks.
+
 - python 3
 - gnu make
+
+## Target host
+
+Machines listed on the inventory file *hosts*.
+
+- python 3
+- python3-apt
 
 ## SSH
 
@@ -27,7 +38,7 @@ Host optiplex7010
    HostName 192.168.160.193
    StrictHostKeyChecking no
    IdentitiesOnly yes
-   IdentityFile /home/jm/.ssh/id_rsa_hmrc
+   IdentityFile ~/.ssh/id_rsa_hmrc
 ```
 
 # Usage
