@@ -1,0 +1,12 @@
+- name: Check if user exists
+  shell: id -u "{{ os_username }}"
+  register: user_exists
+  ignore_errors: true
+
+- name: Change Password
+  user:
+    name: "{{ os_username }}"
+    password: "{{ os_password_hash }}"
+    update_password: always
+  when: user_exists.rc == 0
+  become: yes

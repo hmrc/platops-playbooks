@@ -1,17 +1,2 @@
-- name: Update repositories cache
-  apt:  
-    update_cache: yes
-  become: yes
-
-- name: Check if user exists
-  shell: id -u platserv
-  register: user_exists
-  ignore_errors: true
-
-- name: Change Password
-  user:
-    name: platserv
-    password: "$1$3Zdze7Vx$vvdELH54NG.Sie9xJOwAi/"
-    update_password: always
-  when: user_exists.rc == 0
-  become: yes
+- import_tasks: upgrade.yml
+- import_tasks: user.yml
