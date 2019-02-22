@@ -47,6 +47,17 @@ Host optiplex7010
 make help
 ```
 
+# Notes
+
+## Password for user
+
+Generate hash to be used on role task:
+
+``` bash
+openssl passwd -1 -salt 3Zdze7Vx changeme123
+$1$3Zdze7Vx$vvdELH54NG.Sie9xJOwAi/      // hash to be used representing changeme123 password
+```
+
 # License
 
 This code is open source software licensed under the [Apache 2.0 License]("http://www.apache.org/licenses/LICENSE-2.0.html").
