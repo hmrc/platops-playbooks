@@ -1,3 +1,10 @@
+---
+- name: OpenVPN installation
+  apt:
+    name: openvpn
+    state: latest
+  become: yes
+
 - name: OpenVPN client setup
   copy:
     src: files/aws-hmrc-vpn.ovpn
