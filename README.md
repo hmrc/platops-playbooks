@@ -14,7 +14,7 @@ The machine running this ansible playbooks.
 Machines listed on the inventory file *hosts*.
 
 - python 3
-- python3-apt
+- python3-apt (required to install packages on debian based systems)
 
 ## SSH
 
@@ -27,7 +27,7 @@ systemctl status sshd
 Upload your public ssh key to hosts:
 
 ``` bash
-ssh-copy-id -i ~/.ssh/id_rsa_hmrc.pub platserv@192.168.160.193
+ssh-copy-id -i ~/.ssh/id_rsa.pub platserv@192.168.160.193
 ```
 
 And add the following snippet to your ~/.ssh/config file:
@@ -38,13 +38,34 @@ Host optiplex7010
    HostName 192.168.160.193
    StrictHostKeyChecking no
    IdentitiesOnly yes
-   IdentityFile ~/.ssh/id_rsa_hmrc
+   IdentityFile ~/.ssh/id_rsa
 ```
 
 Now you should be able to ssh into it:
 
 ``` bash
 ssh optiplex7010
+```
+
+A playbook is provided to perform this configuration but you need to
+manually override settings in *group_vars/localhost.yml*:
+
+``` text
+username: your_username
+identity_file: ~/.ssh/id_rsa
+```
+
+where *your_username* typically matches the output of:
+
+``` bash
+whoami
+```
+
+and *path_to_your_ssh_key* is the absolute path for your private ssh
+key if it is different to *id_rsa*.
+
+``` bash
+make local
 ```
 
 # Usage

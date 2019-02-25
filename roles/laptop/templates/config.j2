@@ -1,0 +1,17 @@
+#### AWS Bastion host
+Host bastion.management.tax.service.gov.uk
+   User {{ username }} 
+   IdentityFile {{ identity_file }}
+
+#### MDTP, Core Connectivity, TxM AWS
+Host 172.* ip-172-*.eu-west-2.compute.internal *.mdtp 10.60.* 10.61.* 10.62.* 10.57.* 10.58.* 10.59.* 1$
+   ProxyCommand ssh bastion.management.tax.service.gov.uk -W %h:%p
+   User {{ username }}
+   IdentityFile {{ identity_file }}
+
+Host optiplex7010
+   User platserv
+   HostName 192.168.160.193
+   StrictHostKeyChecking no
+   IdentitiesOnly yes
+   IdentityFile {{ identity_file }}

@@ -4,3 +4,9 @@
 [optiplex7010:vars]
 ansible_python_interpreter=/usr/bin/python3
 ansible_user=platserv
+
+[localhost]
+127.0.0.1
+
+[localhost:vars]
+ansible_connection=local

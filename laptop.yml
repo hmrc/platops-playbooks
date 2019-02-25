@@ -1,0 +1,5 @@
+- name: platops laptop
+  hosts: localhost
+  gather_facts: no
+  roles:
+  - laptop

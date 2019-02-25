@@ -18,3 +18,6 @@ ping: ## test ping against optiplex7010
 	VIRTUAL_ENV_DISABLE_PROMPT=true source .venv/bin/activate;\
 	env ANSIBLE_FORCE_COLOR=true ansible -i hosts optiplex7010 -m ping -u platserv
 
+local: ## setup your laptop
+	VIRTUAL_ENV_DISABLE_PROMPT=true source .venv/bin/activate;\
+	env ANSIBLE_FORCE_COLOR=true ansible-playbook -i hosts laptop.yml --tags "configuration"

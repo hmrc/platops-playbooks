@@ -1,0 +1,2 @@
+---
+- import_tasks: ssh_config.yml

@@ -1,0 +1,15 @@
+---
+- name: SSH home folder
+  file:
+    path: ~/.ssh
+    state: directory
+    mode: 0755
+  tags:
+    - configuration
+
+- name: SSH platops local configuration
+  template:
+    src: templates/config.j2
+    dest: ~/.ssh/config
+  tags:
+    - configuration
