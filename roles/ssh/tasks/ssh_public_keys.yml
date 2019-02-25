@@ -1,0 +1,8 @@
+---
+- name: Upload platops users ssh public keys
+  authorized_key:
+    user: "{{ username }}"
+    state: present
+    key: "{{ item }}"  
+  with_file:
+    - files/id_rsa_jose.carrasco.pub

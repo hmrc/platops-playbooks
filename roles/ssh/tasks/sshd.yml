@@ -1,0 +1,13 @@
+---
+- name: SSH server installation
+  apt:
+    name: openssh-server
+    state: latest
+  become: yes
+
+- name: SSH server is running
+  systemd:
+    name: sshd.service
+    enabled: yes
+    state: started
+  become: yes
