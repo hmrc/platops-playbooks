@@ -41,10 +41,26 @@ Host optiplex7010
    IdentityFile ~/.ssh/id_rsa_hmrc
 ```
 
+Now you should be able to ssh into it:
+
+``` bash
+ssh optiplex7010
+```
+
 # Usage
 
 ``` bash
 make help
+```
+
+Credentials data is encrypted using
+[*ansible-vault*](https://docs.ansible.com/ansible/latest/user_guide/vault.html),
+if you use the make tasks (and you should), then ensure the password
+store file exists with the password used to encrypt that data:
+
+``` bash
+cat .vault-pass.optiplex7010
+//password used for encrypting vault data
 ```
 
 # Notes
