@@ -21,16 +21,51 @@ Machines listed on the inventory file *hosts*.
 Ensure target hosts are running ssh server:
 
 ``` bash
-systemctl status sshd
+systemctl status ssh.service
 ```
 
-Upload your public ssh key to hosts:
+And from your laptop double check you can ssh into our dashboards boxes:
 
 ``` bash
-ssh-copy-id -i ~/.ssh/id_rsa.pub platserv@192.168.160.193
+// for ubuntu based dell optiplex7010
+ssh -l platserv 192.168.160.193
+
+// for debian based raspberry pi
+ssh -l pi 192.168.160.63
 ```
 
-And add the following snippet to your ~/.ssh/config file:
+Upload your public ssh key, assuming is name *id_rsa.pub*, to hosts:
+
+``` bash
+make ssh-to-raspberry
+make ssh-to-optiplex7010
+```
+
+NOTE: if the ip addresses have changed, please update them:
+
+``` bash
+ip -o route get to 8.8.8.8
+```
+
+Setup ~/.ssh/config file, a playbook is provided to perform this
+configuration but you need to manually override settings in
+*group_vars/localhost.yml*:
+
+``` text
+username: your_username
+identity_file: ~/.ssh/id_rsa
+```
+
+where *your_username* should be your LDAP username:
+
+and *path_to_your_ssh_key* is the absolute path for your private ssh
+key if it is different to *id_rsa*.
+
+``` bash
+make local
+```
+
+You should see something like this on your ~/.ssh/config file:
 
 ``` bash
 Host optiplex7010
@@ -47,26 +82,14 @@ Now you should be able to ssh into it:
 ssh optiplex7010
 ```
 
-A playbook is provided to perform this configuration but you need to
-manually override settings in *group_vars/localhost.yml*:
-
-``` text
-username: your_username
-identity_file: ~/.ssh/id_rsa
-```
-
-where *your_username* typically matches the output of:
+Test both dashboards boxes:
 
 ``` bash
-whoami
+make ping-raspberry
+make ping-optiplex7010
 ```
 
-and *path_to_your_ssh_key* is the absolute path for your private ssh
-key if it is different to *id_rsa*.
-
-``` bash
-make local
-```
+You only need to run this section the first time. That's all.
 
 # Usage
 
