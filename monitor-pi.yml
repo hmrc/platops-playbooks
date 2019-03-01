@@ -1,8 +1,8 @@
 - name: tv monitor dashboards
-  hosts: optiplex7010
+  hosts: raspberry
   gather_facts: yes
   roles:
   - debian
-  - ubuntu
-  - openvpn
   - ssh
+  - standup
+  - cectv

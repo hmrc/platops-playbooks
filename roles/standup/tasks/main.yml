@@ -1,0 +1,19 @@
+---
+- name: Copy html file to home directory
+  copy:
+    src: files/countdown.html
+    dest: "{{ home_dir }}"
+
+- name: LXDE to stop the display going to sleep
+  copy:
+    src: files/autostart
+    dest: "{{ home_dir }}/.config/lxsession/LXDE-pi/autostart"
+
+- name: Copy standup shell scripts to home directory
+  copy:
+    src: "files/{{ item }}"
+    dest: "{{ home_dir }}/{{ item }}"
+  with_items:
+    - cleanup-after-standup.sh
+    - countdown-to-standup.sh
+    - prepare-for-standup.sh

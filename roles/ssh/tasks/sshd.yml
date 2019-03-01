@@ -7,7 +7,7 @@
 
 - name: SSH server is running
   systemd:
-    name: sshd.service
+    name: ssh.service
     enabled: yes
     state: started
   become: yes

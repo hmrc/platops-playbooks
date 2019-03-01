@@ -1,0 +1,15 @@
+---
+- name: Create cec-client directory
+  file:
+    path: "{{ home_dir }}/cec-client"
+    state: directory
+    mode: 0755
+
+- name: Copy scripts to cec-client directory
+  copy:
+    src: "files/{{ item }}"
+    dest: "{{ home_dir }}/cec-client/{{ item }}"
+  with_items:
+    - tvoff.sh
+    - tvon.sh
+    - install.sh
