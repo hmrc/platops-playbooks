@@ -7,7 +7,7 @@
 
 - name: OpenVPN client setup
   copy:
-    src: files/aws-hmrc-vpn.ovpn
+    src: "files/{{ vpn_conf }}"
     dest: /etc/openvpn/client/aws-hmrc-vpn.conf
   become: yes
 

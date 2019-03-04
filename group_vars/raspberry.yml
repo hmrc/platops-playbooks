@@ -1,2 +1,0 @@
-username: pi
-home_dir: /home/{{ username }}

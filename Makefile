@@ -32,6 +32,6 @@ ssh-to-raspberry: ## copy ssh public key to raspberry
 ssh-to-optiplex7010: ## copy ssh public key to optiplex7010
 	ssh-copy-id -i ~/.ssh/id_rsa_hmrc.pub platserv@192.168.160.193
 
-local: ## setup your laptop
+run-local: ## setup your laptop
 	VIRTUAL_ENV_DISABLE_PROMPT=true source .venv/bin/activate;\
 	env ANSIBLE_FORCE_COLOR=true ansible-playbook -i hosts laptop.yml --tags "configuration"
