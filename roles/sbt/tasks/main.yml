@@ -1,0 +1,11 @@
+---
+- name: SBT global directory
+  file:
+    path: ~/.sbt/0.13/plugins
+    state: directory
+    mode: 0755
+
+- name: Copy global plugins
+  copy:
+    src: files/plugins.sbt
+    dest: ~/.sbt/0.13/plugins/plugins.sbt

@@ -1,5 +1,9 @@
 # PlatOps ansible playbooks
 
+Ansible roles used by platops team.
+
+- sbt: sbt global configuration.
+
 # Requirements
 
 ## Control machine
