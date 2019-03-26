@@ -10,7 +10,8 @@ Ansible roles used by platops team.
 
 The machine running this ansible playbooks.
 
-- python 3
+- python 3 -
+    - **On the Makefile, we're using python3 so you may want to check the python version on your local machine is running the same**
 - gnu make
 
 ## Target host
