@@ -20,11 +20,11 @@ run-monitor-pi: ## setup raspberry pi
 
 ping-optiplex7010: ## test ping against optiplex7010
 	VIRTUAL_ENV_DISABLE_PROMPT=true source .venv/bin/activate;\
-	env ANSIBLE_FORCE_COLOR=true ansible -i hosts optiplex7010 -m ping -u platserv
+	env ANSIBLE_FORCE_COLOR=true ansible -i hosts optiplex7010 -m ping -u platserv --vault-id .vault-pass.optiplex7010
 
 ping-raspberry: ## test ping against optiplex7010
 	VIRTUAL_ENV_DISABLE_PROMPT=true source .venv/bin/activate;\
-	env ANSIBLE_FORCE_COLOR=true ansible -i hosts raspberry -m ping -u pi
+	env ANSIBLE_FORCE_COLOR=true ansible -i hosts raspberry -m ping -u pi --vault-id .vault-pass.optiplex7010
 
 ssh-to-raspberry: ## copy ssh public key to raspberry
 	ssh-copy-id -i ~/.ssh/id_rsa_hmrc.pub pi@192.168.160.63
