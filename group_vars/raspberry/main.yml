@@ -1,4 +1,5 @@
 username: pi
+groupname: pi
 home_dir: /home/{{ username }}
 vpn_username: "{{ vault_pi_vpn_username }}"
 vpn_password: "{{ vault_pi_vpn_password }}"

@@ -1,4 +1,5 @@
 username: platserv
+groupname: platserv
 home_dir: /home/{{ username }}
 vpn_username: "{{ vault_platserv_vpn_username }}"
 vpn_password: "{{ vault_platserv_vpn_password }}"

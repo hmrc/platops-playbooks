@@ -1,0 +1,21 @@
+---
+- name: Copy the ip address to the home folder of the target host
+  copy:
+    src: files/my_ip_address.sh
+    dest: "{{ home_dir }}/my_ip_address.sh"
+    owner: "{{ username }}"
+    group: "{{ groupname }}"
+    mode: u=rx,g=rx,o=rx
+
+- name: Crontab entry for displaying the ip address
+  cron:
+    name: "find ip address"
+    minute: "00"
+    hour: "10"
+    job: "{{ home_dir }}/my_ip_address.sh"
+
+- name: curl installation
+  apt:
+    name: curl
+    state: latest
+  become: yes
