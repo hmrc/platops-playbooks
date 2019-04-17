@@ -7,3 +7,4 @@
   with_file:
     - files/id_rsa_jose.carrasco.pub
     - files/id_rsa_dario.ghunney.ware.pub
+    - files/id_rsa_eswarprasath.jayaraman.pub
