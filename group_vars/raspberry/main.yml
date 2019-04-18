@@ -3,3 +3,5 @@ groupname: pi
 home_dir: /home/{{ username }}
 vpn_username: "{{ vault_pi_vpn_username }}"
 vpn_password: "{{ vault_pi_vpn_password }}"
+os_username: pi
+os_password_hash: "$1$3Zdze7Vx$yAFGerz.udprXLpTPEV7L0"

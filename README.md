@@ -2,7 +2,7 @@
 
 Ansible roles used by platops team.
 
-- sbt: sbt global configuration.
+- [sbt](roles/sbt): sbt global configuration.
 
 # Requirements
 
@@ -16,7 +16,7 @@ The machine running this ansible playbooks.
 
 ## Target host
 
-Machines listed on the inventory file *hosts*.
+Machines listed on the inventory file *[hosts](hosts)*.
 
 - python 3
 - python3-apt (required to install packages on debian based systems)
@@ -52,7 +52,7 @@ NOTE: if the ip addresses have changed, please update them:
 ip -o route get to 8.8.8.8
 ```
 
-Setup ~/.ssh/config file, a playbook is provided to perform this
+Setup ~/.ssh/config file, a [playbook](laptop.yml) is provided to perform this
 configuration but you need to manually override settings in
 *group_vars/localhost.yml*:
 
@@ -97,6 +97,8 @@ make ping-optiplex7010
 You only need to run this section the first time. That's all.
 
 # Usage
+
+List available tasks:
 
 ``` bash
 make help
