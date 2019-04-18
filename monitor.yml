@@ -3,7 +3,7 @@
   gather_facts: yes
   roles:
   - debian
-  - ubuntu
+  - user
   - openvpn
   - ssh
   - stats
