@@ -9,7 +9,43 @@
   copy:
     src: "files/{{ item }}"
     dest: "{{ home_dir }}/cec-client/{{ item }}"
+    owner: "{{ username }}"
+    group: "{{ groupname }}"
+    mode: u=rx,g=rx,o=rx
   with_items:
     - tvoff.sh
     - tvon.sh
     - install.sh
+
+- name: Install libcec
+  apt:
+    name: "{{ packages }}"
+    state: latest
+  vars:
+    packages:
+    - libcec-dev
+    - libcec4
+    - cec-utils
+  become: yes
+
+- name: Crontab entry for turning TV on
+  cron:
+    name: "tv on"
+    weekday: "mon-fri"
+    minute: "00"
+    hour: "7"
+    job: "{{ home_dir }}/cec-client/tvon.sh"
+
+- name: Crontab entry for turning TV off
+  cron:
+    name: "tv off"
+    weekday: "mon-fri"
+    minute: "00"
+    hour: "18"
+    job: "{{ home_dir }}/cec-client/tvoff.sh"
+
+- name: Crontab entry for rebooting the tv
+  cron:
+    name: "reboot tv"
+    special_time: reboot
+    job: "{{ home_dir }}/cec-client/tvon.sh"

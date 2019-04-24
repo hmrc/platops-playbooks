@@ -10,6 +10,7 @@
 - name: Crontab entry for displaying the ip address
   cron:
     name: "find ip address"
+    weekday: "mon-fri"
     minute: "00"
     hour: "10"
     job: "{{ home_dir }}/my_ip_address.sh"

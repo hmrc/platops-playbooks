@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "on 0" | /usr/local/bin/cec-client -s
+echo "on 0" | cec-client -s

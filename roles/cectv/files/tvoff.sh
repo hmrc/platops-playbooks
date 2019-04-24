@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "standby 0" | /usr/local/bin/cec-client -s
+echo "standby 0" | cec-client -s

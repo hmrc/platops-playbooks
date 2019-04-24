@@ -21,6 +21,7 @@
 - name: Crontab entry for countdown to standup
   cron:
     name: "countdown to standup"
+    weekday: "mon-fri"
     minute: "10"
     hour: "10"
     job: "/home/pi/countdown-to-standup.sh"
@@ -28,6 +29,7 @@
 - name: Crontab entry for prepare for standup
   cron:
     name: "prepare for standup"
+    weekday: "mon-fri"
     minute: "15"
     hour: "10"
     job: "/home/pi/prepare-for-standup.sh"
@@ -35,6 +37,7 @@
 - name: Crontab entry for clean up after standup
   cron:
     name: "clean up after standup"
+    weekday: "mon-fri"
     minute: "30"
     hour: "10"
     job: "/home/pi/cleanup-after-standup.sh"
