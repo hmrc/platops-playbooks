@@ -7,7 +7,7 @@
 
 - name: OpenVPN client setup
   copy:
-    src: "files/{{ vpn_conf }}"
+    src: files/aws-hmrc-vpn-raspberry.ovpn
     dest: /etc/openvpn/client/aws-hmrc-vpn.conf
   become: yes
 
@@ -19,7 +19,7 @@
 
 - name: OpenVPN client connection at startup
   systemd:
-    name: openvpn-client@aws-hmrc-vpn.service
+    name: "{{ vpn_systemd_unitname }}"
     enabled: yes
     state: started
   become: yes

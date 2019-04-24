@@ -4,7 +4,6 @@
 [optiplex7010:vars]
 ansible_python_interpreter=/usr/bin/python3
 ansible_user=platserv
-vpn_conf=aws-hmrc-vpn-raspberry.ovpn
 
 [raspberry]
 192.168.160.49
@@ -12,7 +11,6 @@ vpn_conf=aws-hmrc-vpn-raspberry.ovpn
 [raspberry:vars]
 ansible_python_interpreter=/usr/bin/python3
 ansible_user=pi
-vpn_conf=aws-hmrc-vpn-raspberry.ovpn
 
 [localhost]
 127.0.0.1
