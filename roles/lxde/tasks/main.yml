@@ -1,0 +1,4 @@
+- name: LXDE to stop the display going to sleep
+  copy:
+    src: files/autostart
+    dest: "{{ home_dir }}/.config/lxsession/LXDE-pi/autostart"

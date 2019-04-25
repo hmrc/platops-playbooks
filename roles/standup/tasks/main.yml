@@ -4,19 +4,15 @@
     src: files/countdown.html
     dest: "{{ home_dir }}"
 
-- name: LXDE to stop the display going to sleep
-  copy:
-    src: files/autostart
-    dest: "{{ home_dir }}/.config/lxsession/LXDE-pi/autostart"
-
-- name: Copy standup shell scripts to home directory
-  copy:
-    src: "files/{{ item }}"
-    dest: "{{ home_dir }}/{{ item }}"
-  with_items:
-    - cleanup-after-standup.sh
-    - countdown-to-standup.sh
-    - prepare-for-standup.sh
+- name: Upload cleanup after standup
+  template:
+    src: "templates/{{ item.src_template }}"
+    dest: "{{ home_dir }}/{{ item.destination }}"
+    mode: u=rx,g=rx,o=rx
+  loop:
+    - { src_template: 'cleanup-after-standup.sh.j2', destination: 'cleanup-after-standup.sh' }
+    - { src_template: 'countdown-to-standup.sh.j2', destination: 'countdown-to-standup.sh' }
+    - { src_template: 'prepare-for-standup.sh.j2', destination: 'prepare-for-standup.sh' }
 
 - name: Crontab entry for countdown to standup
   cron:
@@ -41,3 +37,9 @@
     minute: "30"
     hour: "10"
     job: "/home/pi/cleanup-after-standup.sh"
+
+- name: Install Firefox browser
+  apt:
+    name: "{{ firefox }}"
+    state: latest
+  become: yes

@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+killall {{ firefox }}
+sleep 5
+export DISPLAY=:0
+{{ chrome_bin }} --start-maximized &
+sleep 20
+DISPLAY=:0 xdotool key F11
+

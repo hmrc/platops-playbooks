@@ -6,3 +6,6 @@ vpn_password: "{{ vault_vpn_password }}"
 vpn_systemd_unitname: openvpn@client.service
 os_username: pi
 os_password_hash: "$1$3Zdze7Vx$yAFGerz.udprXLpTPEV7L0"
+firefox: firefox-esr
+chrome_bin: chromium-browser
+chrome_ps: chromium-browser
