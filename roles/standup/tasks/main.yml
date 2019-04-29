@@ -26,7 +26,7 @@
   cron:
     name: "prepare for standup"
     weekday: "mon-fri"
-    minute: "15"
+    minute: "13"
     hour: "10"
     job: "/home/pi/prepare-for-standup.sh"
 
