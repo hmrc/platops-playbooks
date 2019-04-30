@@ -20,15 +20,15 @@
     weekday: "mon-fri"
     minute: "10"
     hour: "10"
-    job: "/home/pi/countdown-to-standup.sh"
+    job: "/home/{{ os_username }}/countdown-to-standup.sh"
 
 - name: Crontab entry for prepare for standup
   cron:
     name: "prepare for standup"
     weekday: "mon-fri"
-    minute: "13"
+    minute: "14"
     hour: "10"
-    job: "/home/pi/prepare-for-standup.sh"
+    job: "/home/{{ os_username }}/prepare-for-standup.sh"
 
 - name: Crontab entry for clean up after standup
   cron:
@@ -36,7 +36,7 @@
     weekday: "mon-fri"
     minute: "30"
     hour: "10"
-    job: "/home/pi/cleanup-after-standup.sh"
+    job: "/home/{{ os_username }}/cleanup-after-standup.sh"
 
 - name: Install Firefox browser
   apt:
