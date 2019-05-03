@@ -1,0 +1,19 @@
+---
+- name: Delete files previously copied
+  file:
+    path: "{{ home_dir }}/{{ item }}"
+    state: absent
+  loop:
+    - cleanup-after-standup.sh
+    - countdown-to-standup.sh
+    - prepare-for-standup.sh
+    - countdown.html
+
+- name: Delete Crontab entries
+  cron:
+    name: "{{ item }}"
+    state: absent
+  loop:
+    - "countdown to standup"  
+    - "prepare for standup"
+    - "clean up after standup"
