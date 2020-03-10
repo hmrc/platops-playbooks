@@ -15,6 +15,4 @@ addSbtPlugin("uk.gov.hmrc" % "sbt-distributables" % "1.2.0")
 
 addSbtPlugin("uk.gov.hmrc" % "sbt-bobby" % "0.34.0")
 
-addSbtPlugin("net.virtual-void" % "sbt-dependency-graph" % "0.9.2")
-
 addSbtPlugin("com.timushev.sbt" % "sbt-updates" % "0.3.4")
